@@ -2,6 +2,7 @@
  * Copyright Ben Olson (https://github.com/bseth99/jquery-ui-extensions)
  * jQuery UI ComboBox @VERSION
  *
+ * Changes by Frank Glück (http://www.dozent.net)
  *  Adapted from Jörn Zaefferer original implementation at
  *  http://www.learningjquery.com/2010/06/a-jquery-ui-combobox-under-the-hood
  *
