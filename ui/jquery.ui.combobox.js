@@ -108,7 +108,7 @@
 
                   var text = $( this ).text();
 
-                  if ( this.value && ( !request.term || matcher.test(text) ) ) {
+                  if (this.value && ( !request.term || matcher.test(text) ) ) {  
 
                      return {
                            label: text.replace(
@@ -116,11 +116,18 @@
                                   "(?![^&;]+;)(?!<[^<>]*)(" +
                                   $.ui.autocomplete.escapeRegex(request.term) +
                                   ")(?![^<>]*>)(?![^&;]+;)", "gi"),
-                                  "<strong>$1</strong>"),
+                                  "<b>$1</b>") 
+                                  ,
                            value: text,
                            option: this
                         };
                   }
+                  else if(!this.value || request.term=='')
+                    return {
+                      label: text,                           
+                      value: text,
+                      option: this
+                  };
               })
            );
       },
@@ -130,6 +137,7 @@
          "autocompletechange input" : function(event, ui) {
 
             var $el = $(event.currentTarget);
+
             var changedOption = ui.item ? ui.item.option : null;
             if ( !ui.item ) {
 
@@ -204,8 +212,8 @@
 
          "autocompleteopen input": function ( event, ui ) {
 
-            this.uiCombo.children('.ui-autocomplete')
-               .outerWidth(this.uiCombo.outerWidth(true));
+//            this.uiCombo.children('.ui-autocomplete')
+//               .outerWidth(this.uiCombo.outerWidth(true));
          },
 
          "mousedown .ui-combobox-button" : function ( event ) {
